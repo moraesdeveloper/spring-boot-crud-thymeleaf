@@ -1,0 +1,78 @@
+<html xlmns:th="http://thymeleaf.org"   xlmns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<title>Cadastro de Alunos</title>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body class="container">
+
+<h5>Detalhes do Aluno</h5>
+
+<a class="btn" href="/listar">Voltar</a>
+
+<div th:each="detalhe : ${aluno}">
+<br  />
+<p style="font-weight:bold">NOME : <span th:text="${detalhe.nomeCompleto}"></span>
+
+
+<p style="font-weight:bold">DATA NASCIMENTO : <span th:text="${#calendars.format(detalhe.dataNasc, 'dd-MM-yyyy')}"></span></p>
+
+<p style="font-weight:bold">RG : <span th:text="${detalhe.rg}"></span>
+CPF : <span th:text="${detalhe.cpf}"></span>
+</p>
+
+<p style="font-weight:bold">NÍVEL : <span th:text="${detalhe.nivel}"></span>
+SÉRIE : <span th:text="${detalhe.serie}"></span>
+TURMA : <span th:text="${detalhe.turma}"></span>
+</p>
+</div>
+
+<h5>Cadastrar Responsável</h5>
+
+<form method="post">
+<label>Nome Responsável</label>
+<input type="text" name="nomeResponsavel"/>
+<label>Grau de Parentesco</label>
+<input type="text" name="grauParentesco"/>
+<label>Telefone</label>
+<input type="text" name="telefone"/>
+<input type="submit" class="btn" value="Cadastrar"/>
+</form>
+
+<br  />
+
+<h5>Responsaveis</h5>
+
+<table>
+<thead>
+	<tr>
+		<td>ID</td>
+		<td>Nome Responsavel</td>
+		<td>Grau de Parentesco</td>
+		<td>Telefone</td>
+		<td>Opções</td>
+	</tr>
+</thead>
+
+<tbody>
+	<tr th:each="responsavel : ${responsaveis}">
+		<td th:text="${responsavel.id}"></td>
+		<td th:text="${responsavel.nomeResponsavel}"></td>
+		<td th:text="${responsavel.grauParentesco}"></td>
+		<td th:text="${responsavel.telefone}"></td>
+		<td>
+		<a title="deletar" th:href="@{/deletarResponsavel/{id}(id=${responsavel.id})}"><i class="material-icons">delete</i></a>
+		</td>
+	</tr>
+</tbody>
+
+</table>
+
+
+</body>
+
+</html>

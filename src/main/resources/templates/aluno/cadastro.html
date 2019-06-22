@@ -1,0 +1,37 @@
+<html xlmns:th="http://thymeleaf.org"   xlmns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<title>Cadastro de Alunos</title>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+
+<br />
+<div class="container">
+<form method="post" th:object="${alunoobj}">
+<label>Nome Completo</label>
+<input type="text" name="nomeCompleto"/>
+<label>RG</label>
+<input type="text" name="rg"/>
+<label>CPF</label>
+<input type="text" name="cpf"/>
+<label>Nível</label>
+<input type="text" name="nivel"/>
+<label>Data Nascimento</label>
+<input type="date" name="dataNasc"/>
+<label>Série</label>
+<input type="text" name="serie"/>
+<label>Turma</label>
+<input type="text" name="turma"/>
+<input type="submit" class="btn" value="Salvar Aluno"/>
+<input type="reset" class="btn" value="Limpar Campos"/>
+</form>
+</div>
+
+</body>
+
+</html>

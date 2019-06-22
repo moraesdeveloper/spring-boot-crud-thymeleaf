@@ -1,0 +1,61 @@
+<html xlmns:th="http://thymeleaf.org"   xlmns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<title>Cadastro de Alunos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body style="background-color:#cfcfd1">
+
+<br  />
+
+<a class="btn" href="/cadastrar"><i class="material-icons">add_circle</i> Novo Registro</a>
+<a style="background-color:#4286f4" class="btn" href="/listar"><i class="material-icons">contacts</i> Listar Todos</a>
+
+<div style="float:right">
+<form method="post" action="pesquisar">
+<label>Filtrar por nome</label>
+<input type="text" name="pesquisanome"/>
+<button style="background-color:grey" class="btn" type="submit"><i class="material-icons">find_in_page</i>Buscar</button>
+</form>
+</div>
+
+
+<table class="highlight">
+
+<thead>
+	<tr>
+		<td>ID</td>
+		<td>Nome Completo</td>
+		<td>Nível</td>
+		<td>Série</td>
+		<td>Turma</td>
+		<td>Opções</td>
+	</tr>
+</thead>
+
+<tbody>
+	<tr th:each="aluno : ${alunos}">
+		<td><span th:text="${aluno.id}"></span></td>
+		<td><span th:text="${aluno.nomeCompleto}"></span></td>
+		<td><span th:text="${aluno.nivel}"></span></td>
+		<td><span th:text="${aluno.serie}"></span></td>
+		<td><span th:text="${aluno.turma}"></span></td>
+		<td>
+		<a style="color:black" title="deletar" th:href="@{/deletar/{id}(id=${aluno.id})}"><i class="material-icons">delete</i></a>
+		<a style="color:black" title="editar" th:href="@{/editar/{id}(id=${aluno.id})}"><i class="material-icons">create</i></a>
+		<a style="color:black" title="detalhes" th:href="@{/detalhe/{id}(id=${aluno.id})}"><i class="material-icons">dehaze</i></a>
+	
+		</td>
+	</tr>
+</tbody>
+
+</table>
+
+</body>
+
+</html>
