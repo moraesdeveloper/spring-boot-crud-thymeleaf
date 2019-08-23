@@ -1,7 +1,5 @@
-#CRUD SPRING BOOT MVC THYMELEAF
+#CRUD SPRING BOOT COM TEMPLATE THYMELEAF
 
-Aplicação Java Web simples com Spring Boot, MVC e thymeleaf.
-
-Fiz o deploy no heroku, segue o link :
+FIZ O DEPLOY NO HEROKU, SEGUE O LINK :
 
 http://crudspringbootmvc.herokuapp.com/listar
